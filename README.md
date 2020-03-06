@@ -48,3 +48,14 @@ Thus, the following improvements are left as exercise for reader:
 
 - numpy
 - opencv-python
+
+## Pros of memory-mapped file
+
+- Memory-mapped file feature exists in other programming
+languages. It means that you can communicate between any language that supports
+this feature.
+- It's faster than writing/reading from a file on a disk.
+- It's faster than using internet protocol like TCP/IP, HTTP, etc.
+
+The downside is that you need to come up with your own protocol of managing
+the file.
