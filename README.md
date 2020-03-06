@@ -17,8 +17,8 @@ There are 2 main files: `server.py` and `client.py`
 
 - `server.py` will read the image from a webcam (at index 0) and continuously
   writes images as bytes to a memory mapped file.
-- `client.py` will read the memory mapped file as bytes, convert it back to an
-  image, and show it.
+- `client.py` will continuously read the memory mapped file as bytes, convert
+  them back to an image, and show the image.
 
 1. Run `python server.py` on a command prompt.
 2. Run `python client.py` on another command prompt.
