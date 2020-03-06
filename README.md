@@ -58,4 +58,5 @@ this feature.
 - It's faster than using internet protocol like TCP/IP, HTTP, etc.
 
 The downside is that you need to come up with your own protocol of managing
-the file.
+the file. And it's still slower than shared-memory in the same programming
+language.
