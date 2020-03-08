@@ -12,7 +12,6 @@ cap.set(cv.CAP_PROP_FRAME_WIDTH, 1280)
 cap.set(cv.CAP_PROP_FRAME_HEIGHT, 720)
 
 mm = None
-print("Writing images to a memory-mapped file...")
 try:
     while True:
         ret, img = cap.read()
@@ -23,12 +22,13 @@ try:
 
         # write image
         start = time.perf_counter()
-        imgb = img.tobytes()
+        buf = img.tobytes()
         mm.seek(0)
-        mm.write(imgb)
+        mm.write(buf)
+        mm.flush()
         stop = time.perf_counter()
 
-        print("Writing Latency:", (stop - start) * 1000, "ms")
+        print("Writing Duration:", (stop - start) * 1000, "ms")
 except KeyboardInterrupt:
     pass
 print("Closing resources")

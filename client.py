@@ -14,15 +14,15 @@ while True:
     # read image
     start = time.perf_counter()
     mm.seek(0)
-    imgb = mm.read(n)
-    img = np.frombuffer(imgb, dtype=np.uint8).reshape(shape)
+    buf = mm.read(n)
+    img = np.frombuffer(buf, dtype=np.uint8).reshape(shape)
     stop = time.perf_counter()
 
-    print("Reading Latency:", (stop - start) * 1000, "ms")
+    print("Reading Duration:", (stop - start) * 1000, "ms")
     cv.imshow("img", img)
     key = cv.waitKey(1) & 0xFF
     key = chr(key)
-    if key == "q":
+    if key.lower() == "q":
         break
 cv.destroyAllWindows()
 mm.close()
