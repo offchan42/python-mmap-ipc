@@ -41,8 +41,15 @@ Thus, the following improvements are left as exercise for reader:
 - Make the client read the image only if it's new. This can be done by
   putting a counter/timestamp number into the file and check it against
   your previous image's counter/timestamp.
+- Write timestamp into the file, and when you read the image, subtract the new
+  timestamp by the file's timestamp, that will tell your true latency.
 - Write client in other language that supports memory mapped file. You should
   be able to read the image from the python server.
+- Lock the file or make sure the file is completely written before reading to
+  ensure that the reader does not read the file while it's being written.
+  Or you can add timestamp at the front and back of the file and compare their
+  equality. If they are equal when reading, it means the file is written
+  completely.
 
 ## Requirements
 
