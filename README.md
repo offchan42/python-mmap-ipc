@@ -62,8 +62,10 @@ Thus, the following improvements are left as exercise for reader:
 languages. It means that you can communicate between any language that supports
 this feature.
 - It's faster than writing/reading from a file on a disk.
-- It's faster than using internet protocol like TCP/IP, HTTP, etc.
+- It's faster than using internet protocol like TCP/IP, HTTP, etc. (On my machine,
+  latency is around 20-25 ms using gRPC and 10-13 ms using ZeroMQ)
 
-The downside is that you need to come up with your own protocol of managing
-the file. And it's still slower than shared-memory in the same programming
-language.
+## Cons
+
+- You need to come up with your own protocol of managing the file, which can be complicated quickly.
+- Even if it's fast, it's still slower than shared-memory in the same programming language.
